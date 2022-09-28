@@ -111,6 +111,10 @@ func testInteropDecode(t *testing.T, tt rawTestdata) {
 		t.Fatal(err)
 	}
 
+	if decoded.Kid == nil {
+		t.Fatalf("kid cannot be nil")
+	}
+
 	if diff := cmp.Diff(tt.JSON, decoded.Cert); diff != "" {
 		t.Errorf("Decode: unexpected diff: (-want +got):\n%s", diff)
 	}

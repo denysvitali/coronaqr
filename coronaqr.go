@@ -222,8 +222,6 @@ func (u *unverifiedCOSE) verify(expired func(time.Time) bool, certprov PublicKey
 			return err
 		}
 		u.cert = cert
-	} else {
-		return fmt.Errorf("invalid certificate provider")
 	}
 
 	verifier := &cose.Verifier{
